@@ -9,9 +9,9 @@ function reload() {
 
 async function fetchNews(query) {
     try {
-        const res = await fetch(`${url}q=${query}&apiKey=${API_KEY}`); 
+        const res = await fetch(${url}q=${query}&apiKey=${API_KEY}); 
         if (!res.ok) {
-            throw new Error(`Error: ${res.status} ${res.statusText}`); 
+            throw new Error(Error: ${res.status} ${res.statusText}); 
         }
         const data = await res.json();
         bindData(data.articles);
@@ -49,7 +49,7 @@ function fillDataInCard(cardClone, article) {
         timeZone: "Asia/Jakarta",
     });
 
-    newsSource.textContent = `${article.source.name || "Unknown Source"} · ${date}`;
+    newsSource.textContent = ${article.source.name || "Unknown Source"} · ${date};
 
     cardClone.firstElementChild.addEventListener("click", () => {
         window.open(article.url, "_blank");
