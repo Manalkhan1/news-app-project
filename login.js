@@ -1,3 +1,4 @@
+// Frontend JavaScript
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
     const usernameInput = document.getElementById("Username");
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const email = prompt("Enter your email to reset the password:");
             if (email) {
-                alert(A password reset link has been sent to ${email}.);
+                alert(`A password reset link has been sent to ${email}.`);
             } else {
                 alert("Email is required to reset the password.");
             }
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (continueLink) {
         continueLink.addEventListener("click", () => {
             alert("Continuing as a guest...");
-            window.location.href = "index.html"; 
+            window.location.href = "index.html";
         });
     }
 
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// Backend (Node.js with Express)
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -66,20 +68,20 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
-    
+
     if (username === "admin" && password === "password") {
         res.send("Login successful!");
     } else {
-        res.send("Invalid credentials");
+        res.send("Invalid credentials.");
     }
 });
 
 app.post("/reset-password", (req, res) => {
     const { email } = req.body;
-    
-    res.send(Password reset instructions sent to ${email});
+
+    res.send(`Password reset instructions sent to ${email}.`);
 });
 
 app.listen(port, () => {
-    console.log(Server running at http://localhost:${port});
+    console.log(`Server running at http://localhost:${port}`);
 });
