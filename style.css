@@ -7,25 +7,25 @@
 }
 
 :root {
-    --primary-text-color: #e0e0e0; 
-    --secondary-text-color: #bbbbbb; 
-    --accent-color: #4caf50; 
+    --primary-text-color: #e0e0e0;
+    --secondary-text-color: #bbbbbb;
+    --accent-color: #4caf50;
     --accent-color-dark: #388e3c;
-    --border-color: #333333; 
+    --border-color: #333333;
     --card-border-radius: 10px;
-    --card-hover-border: 2px solid #4caf50;
-    --background-color: #121212; 
-    --card-background-color: #1e1e1e; 
-    --header-background-color: #1a1a1a; 
-    --hover-card-color: #333333;  
-    --gradient-start: #121212; 
-    --gradient-end: #2a2a2a;
+    --card-hover-border: 2px solid #4caf50; 
+    --background-color: #121212;
+    --card-background-color: #1e1e1e;
+    --header-background-color: #1a1a1a;
+    --hover-card-color: #333333;
+    --gradient-start: #121212;
+    --gradient-end: #2a2a2a;  
 }
 
 body {
     font-family: "Poppins", sans-serif;
     color: var(--primary-text-color);
-    background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end)); 
+    background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));  
     position: relative;
     overflow-x: hidden;
     min-height: 100vh;
@@ -58,7 +58,7 @@ ul {
 }
 
 nav {
-    background-color: var(--header-background-color);
+    background-color: var(--header-background-color); 
     box-shadow: 0 0 4px #555555;
     position: fixed;
     top: 0;
@@ -136,12 +136,11 @@ main {
     font-size: 2rem;
     font-weight: bold;
     color: white !important;
-    text-align: left;
+    text-align: left; 
     margin-bottom: 20px;
     margin-left: 20px;
     margin-top: 20px;
 }
-
 
 .cards-container {
     display: grid;
@@ -197,5 +196,5 @@ footer {
     background-color: var(--header-background-color);
     box-shadow: 0 0 4px #555555;
     color: var(--secondary-text-color);
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
