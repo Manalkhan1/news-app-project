@@ -13,9 +13,10 @@ body {
     background-size: 100% auto;
     background-repeat: no-repeat;
     box-sizing: border-box;
-    padding: 0 10px; 
+    padding: 0 10px; /* Padding added for better mobile layout */
 }
 
+/* Wrapper Styling */
 .wrapper {
     width: 100%;
     max-width: 400px;
@@ -29,12 +30,14 @@ body {
     box-sizing: border-box;
 }
 
+/* Header Styling */
 .wrapper h1 {
     text-align: center;
     margin-bottom: 20px;
     text-transform: capitalize;
 }
 
+/* Input Box Styling */
 .input-box {
     margin-bottom: 15px;
     position: relative;
@@ -56,6 +59,7 @@ body {
     font-size: 18px;
 }
 
+/* Remember and Forgot Section */
 .remember-forgot {
     display: flex;
     justify-content: space-between;
@@ -75,13 +79,14 @@ body {
     gap: 5px;
     text-decoration: none;
     color: #fff;
-    font-size: 14px;
+    font-size: 14px; /* Ensured it is clear on all screen sizes */
 }
 
 .remember-forgot a i {
     font-size: 16px;
 }
 
+/* Button Styling */
 button {
     width: 100%;
     padding: 10px;
@@ -91,13 +96,14 @@ button {
     color: black;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease; /* Added transition for hover effect */
 }
 
 button:hover {
-    background: #f1f1f1; 
+    background: #f1f1f1; /* Added hover effect */
 }
 
+/* Register Link Styling */
 .register-link {
     text-align: center;
     margin-top: 15px;
@@ -114,6 +120,7 @@ button:hover {
     color: #ddd;
 }
 
+/* Responsive design for smaller screens */
 @media (max-width: 600px) {
     .wrapper {
         padding: 20px;
