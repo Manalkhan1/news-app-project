@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #e0e0e0;  /* Lighter text for dark theme */
+    --secondary-text-color: #bbbbbb; /* Secondary text color */
+    --accent-color: #4caf50;  /* Accent color (green) */
+    --accent-color-dark: #388e3c; /* Darker shade of accent */
+    --border-color: #333333;  /* Dark border color */
+    --card-border-radius: 10px;
+    --card-hover-border: 2px solid #4caf50; /* Green border on hover */
+    --background-color: #121212;  /* Dark background */
+    --card-background-color: #1e1e1e; /* Dark card background */
+    --header-background-color: #1a1a1a;  /* Darker header */
+    --hover-card-color: #333333;  /* Lighter card hover color */
+    --gradient-start: #121212; /* Darker color at the bottom */
+    --gradient-end: #2a2a2a;   /* Lighter color at the top */
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--primary-text-color);
+    background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));  /* Reversed gradient background */
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    color: var(--secondary-text-color);
+    line-height: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--header-background-color);  /* Darker nav */
+    box-shadow: 0 0 4px #555555;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    left: 0;
+    right: 0;
+}
+
+.main-nav {
+    justify-content: space-between;
+    padding-block: 8px;
+}
+
+.company-logo img {
+    width: 120px;
+}
+
+.nav-links ul {
+    gap: 16px;
+}
+
+.hover-link {
+    cursor: pointer;
+}
+
+.hover-link:hover {
+    color: var(--accent-color);
+}
+
+.hover-link:active {
+    color: red;
+}
+
+.nav-item.active {
+    color: var(--accent-color);
+}
+
+.search-bar {
+    height: 32px;
+    gap: 8px;
+}
+
+.news-input {
+    width: 200px;
+    height: 100%;
+    padding-inline: 12px;
+    border-radius: 4px;
+    border: 2px solid #444444; /* Dark input border */
+    background-color: #2d2d2d;  /* Dark input background */
+    color: var(--primary-text-color);  /* Light text on input */
+    font-family: "Roboto", sans-serif;
+}
+
+.search-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+}
+
+.search-button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+main {
+    padding-block: 20px;
+    margin-top: 80px;
+}
+
+/* Heading for Latest News */
+#category-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white !important;
+    text-align: left; /* Align text to the left */
+    margin-bottom: 20px;
+    margin-left: 20px; /* Space from the left */
+    margin-top: 20px; /* Space from the top */
+}
+
+/* Cards Container */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));  /* Responsive columns */
+    gap: 20px;
+    justify-items: center;  /* Center cards horizontally */
+}
+
+/* Cards */
+.card {
+    width: 360px;
+    min-height: 400px;
+    box-shadow: 0 0 4px #555555;
+    border-radius: var(--card-border-radius);
+    cursor: pointer;
+    background-color: var(--card-background-color);  /* Dark card background */
+    overflow: hidden;
+    border: 1px solid var(--border-color); /* Border around each card */
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(34, 148, 237, 0.4);
+    transform: translateY(-2px);
+    border: var(--card-hover-border); /* Border color on hover */
+}
+
+.card-header img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 12px;
+}
+
+.news-source {
+    margin-block: 12px;
+    color: var(--secondary-text-color);  /* Lighter text color */
+}
+
+/* Card Titles */
+.card h3 {
+    font-size: 1.2rem;
+    color: var(--primary-text-color);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    background-color: var(--header-background-color);  /* Dark footer */
+    box-shadow: 0 0 4px #555555;
+    color: var(--secondary-text-color);
+    font-family: "Roboto", sans-serif;
+}
