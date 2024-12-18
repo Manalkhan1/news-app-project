@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const passwordInput = document.getElementById("Password");
     const rememberMeCheckbox = document.getElementById("rememberMe");
 
-    // "Forgot Password" functionality
     const forgotPasswordLink = document.querySelector(".forgot-password");
     if (forgotPasswordLink) {
         forgotPasswordLink.addEventListener("click", (e) => {
@@ -18,16 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Handle "Continue Without Login" click
     const continueLink = document.querySelector(".continue-link");
     if (continueLink) {
         continueLink.addEventListener("click", () => {
             alert("Continuing as a guest...");
-            window.location.href = "index.html"; // Redirect to news feed
+            window.location.href = "index.html"; 
         });
     }
 
-    // Login form submission handling
     if (loginForm) {
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -40,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Simulate login logic
             if (username === "admin" && password === "1234") {
                 alert("Login successful! Redirecting to your news feed...");
                 if (rememberMeCheckbox?.checked) {
@@ -53,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Auto-fill username if "Remember Me" is checked
     const savedUsername = localStorage.getItem("username");
     if (savedUsername && usernameInput) {
         usernameInput.value = savedUsername;
@@ -63,17 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// server.js (Node.js example)
 const express = require("express");
 const app = express();
 const port = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
-// Handle login POST request
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
-    // Validate username and password here (e.g., check against database)
+    
     if (username === "admin" && password === "password") {
         res.send("Login successful!");
     } else {
@@ -81,10 +74,9 @@ app.post("/login", (req, res) => {
     }
 });
 
-// Handle forgot password POST request
 app.post("/reset-password", (req, res) => {
     const { email } = req.body;
-    // Process password reset logic here
+    
     res.send(`Password reset instructions sent to ${email}`);
 });
 
