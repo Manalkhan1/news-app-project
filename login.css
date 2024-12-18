@@ -1,0 +1,154 @@
+@import url(http://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap);
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('img fire.jpg');
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    padding: 0 10px; /* Padding added for better mobile layout */
+}
+
+/* Wrapper Styling */
+.wrapper {
+    width: 100%;
+    max-width: 400px;
+    background: transparent;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+.wrapper h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+/* Input Box Styling */
+.input-box {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+/* Remember and Forgot Section */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.remember-forgot a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px; /* Ensured it is clear on all screen sizes */
+}
+
+.remember-forgot a i {
+    font-size: 16px;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Added transition for hover effect */
+}
+
+button:hover {
+    background: #f1f1f1; /* Added hover effect */
+}
+
+/* Register Link Styling */
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+    color: #ddd;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .wrapper {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .wrapper h1 {
+        font-size: 24px;
+    }
+
+    .input-box input {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .remember-forgot {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 12px;
+    }
+
+    .remember-forgot a {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form id="loginForm">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" id="Username" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="Password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox" id="rememberMe"> Remember me
+                </label>
+                <a href="#" class="forgot-password">
+                    <i class='bx bxs-user'></i> Forgot password?
+                </a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="register-link">
+                <p><a href="index.html" class="continue-link">Continue without login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginForm = document.getElementById("loginForm");
+            const usernameInput = document.getElementById("Username");
+            const passwordInput = document.getElementById("Password");
+            const rememberMeCheckbox = document.getElementById("rememberMe");
+
+            // "Forgot Password" functionality
+            const forgotPasswordLink = document.querySelector(".forgot-password");
+            forgotPasswordLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                const email = prompt("Enter your email to reset the password:");
+                if (email) {
+                    alert(`A password reset link has been sent to ${email}.`);
+                } else {
+                    alert("Email is required to reset the password.");
+                }
+            });
+
+            // Handle "Continue Without Login" click
+            const continueLink = document.querySelector(".continue-link");
+            continueLink.addEventListener("click", () => {
+                alert("Continuing as a guest...");
+                window.location.href = "index.html"; // Redirect to news feed
+            });
+
+            // Login form submission handling
+            loginForm.addEventListener("submit", (e) => {
+                e.preventDefault(); // Prevent default form submission
+
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value.trim();
+
+                if (!username || !password) {
+                    alert("Please enter both username and password.");
+                    return;
+                }
+
+                // Simulate login logic (for now, just using hardcoded username/password)
+                if (username === "admin" && password === "1234") {
+                    alert("Login successful! Redirecting to your news feed...");
+                    if (rememberMeCheckbox.checked) {
+                        localStorage.setItem("username", username);
+                    }
+                    window.location.href = "index.html"; // Redirect to the news-feed page
+                } else {
+                    alert("Invalid username or password. Please try again.");
+                }
+            });
+
+            // Auto-fill username if "Remember Me" is checked
+            const savedUsername = localStorage.getItem("username");
+            if (savedUsername) {
+                usernameInput.value = savedUsername;
+                rememberMeCheckbox.checked = true;
+            }
+        });
+    </script>
+</body>
+</html>
