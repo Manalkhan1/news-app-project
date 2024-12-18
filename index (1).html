@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Feed App</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <nav>
@@ -32,21 +32,21 @@
     <main>
         <h1 id="category-heading">Latest News</h1>
         <div class="cards-container container flex" id="cards-container"></div>
+        <!-- Error container for displaying error messages -->
+        <div id="error-container" style="display: none; color: red; text-align: center; margin-top: 20px;"></div>
     </main>
 
     <template id="template-news-card">
         <div class="card">
             <div class="card-header">
-                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" class="news-img">
             </div>
             <div class="card-content">
-                <h3 id="news-title">This is the Title</h3>
-                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
-                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+                <h3 class="news-title">This is the Title</h3>
+                <h6 class="news-source">Source · Date</h6>
+                <p class="news-desc">Description of the news article will appear here.</p>
             </div>
         </div>
     </template>
-
-    <script src="script.js"></script>
 </body>
 </html>
