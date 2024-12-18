@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const email = prompt("Enter your email to reset the password:");
             if (email) {
-                alert(`A password reset link has been sent to ${email}.`);
+                alert(A password reset link has been sent to ${email}.);
             } else {
                 alert("Email is required to reset the password.");
             }
@@ -77,9 +77,9 @@ app.post("/login", (req, res) => {
 app.post("/reset-password", (req, res) => {
     const { email } = req.body;
     
-    res.send(`Password reset instructions sent to ${email}`);
+    res.send(Password reset instructions sent to ${email});
 });
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(Server running at http://localhost:${port});
 });
