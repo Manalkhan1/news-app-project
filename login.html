@@ -41,7 +41,6 @@
             const passwordInput = document.getElementById("Password");
             const rememberMeCheckbox = document.getElementById("rememberMe");
 
-            // "Forgot Password" functionality
             const forgotPasswordLink = document.querySelector(".forgot-password");
             forgotPasswordLink.addEventListener("click", (e) => {
                 e.preventDefault();
@@ -53,16 +52,14 @@
                 }
             });
 
-            // Handle "Continue Without Login" click
             const continueLink = document.querySelector(".continue-link");
             continueLink.addEventListener("click", () => {
                 alert("Continuing as a guest...");
-                window.location.href = "index.html"; // Redirect to news feed
+                window.location.href = "index.html"; 
             });
 
-            // Login form submission handling
             loginForm.addEventListener("submit", (e) => {
-                e.preventDefault(); // Prevent default form submission
+                e.preventDefault(); 
 
                 const username = usernameInput.value.trim();
                 const password = passwordInput.value.trim();
@@ -72,19 +69,17 @@
                     return;
                 }
 
-                // Simulate login logic (for now, just using hardcoded username/password)
                 if (username === "admin" && password === "1234") {
                     alert("Login successful! Redirecting to your news feed...");
                     if (rememberMeCheckbox.checked) {
                         localStorage.setItem("username", username);
                     }
-                    window.location.href = "index.html"; // Redirect to the news-feed page
+                    window.location.href = "index.html";
                 } else {
                     alert("Invalid username or password. Please try again.");
                 }
             });
 
-            // Auto-fill username if "Remember Me" is checked
             const savedUsername = localStorage.getItem("username");
             if (savedUsername) {
                 usernameInput.value = savedUsername;
