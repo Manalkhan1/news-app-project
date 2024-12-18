@@ -1,4 +1,4 @@
-const API_KEY = "fb19e88aed0a4d0eb66cfaa1c5e93d55";
+const API_KEY = "453bc841763e440da1c1dae013fca519";
 const url = "https://newsapi.org/v2/everything?q=";
 
 window.addEventListener("load", () => fetchNews("sports"));
