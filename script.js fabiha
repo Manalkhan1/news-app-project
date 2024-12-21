@@ -1,4 +1,4 @@
-const API_KEY = "453bc841763e440da1c1dae013fca519";
+const API_KEY = "fb19e88aed0a4d0eb66cfaa1c5e93d55";
 const url = "https://newsapi.org/v2/everything?";
 
 // Fetch default news category on load
@@ -11,16 +11,31 @@ function reload() {
 async function fetchNews(query) {
     try {
         const res = await fetch(`${url}q=${query}&apiKey=${API_KEY}`);
+        console.log("Response Status:", res.status);
+
         if (!res.ok) {
+            console.error("API Error:", res.status, res.statusText);
             throw new Error(`Error: ${res.status} ${res.statusText}`);
         }
+
         const data = await res.json();
+        console.log("API Response Data:", data);
+
+        if (!data.articles || data.articles.length === 0) {
+            displayError("No news articles found.");
+            return;
+        }
+
+        // Log articles to check the structure
+        console.log("Articles:", data.articles);
+
         bindData(data.articles);
     } catch (error) {
         console.error("Failed to fetch news:", error);
         displayError("Failed to fetch news. Please try again later.");
     }
 }
+
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cards-container");
@@ -31,21 +46,30 @@ function bindData(articles) {
         return;
     }
 
-    cardsContainer.innerHTML = "";
+    cardsContainer.innerHTML = ""; // Clear any previous content
 
-    articles.forEach((article) => {
-        if (!article.urlToImage) return;
+    articles.forEach((article, index) => {
+        console.log(`Processing article ${index + 1}:`, article);  // Debugging each article
+        
+        if (!article.urlToImage || !article.title || !article.url) {
+            console.log("Skipping incomplete article:", article);  // Skip incomplete articles
+            return;
+        }
+
         const cardClone = newsCardTemplate.content.cloneNode(true);
         fillDataInCard(cardClone, article);
         cardsContainer.appendChild(cardClone);
     });
 }
 
+
 function fillDataInCard(cardClone, article) {
     const newsImg = cardClone.querySelector(".news-img");
     const newsTitle = cardClone.querySelector(".news-title");
     const newsSource = cardClone.querySelector(".news-source");
     const newsDesc = cardClone.querySelector(".news-desc");
+
+    console.log("Filling card with data:", article);  // Debugging data for each card
 
     newsImg.src = article.urlToImage || "default-image.jpg";
     newsImg.onerror = () => (newsImg.src = "default-image.jpg"); // Fallback for broken images
@@ -62,6 +86,7 @@ function fillDataInCard(cardClone, article) {
         window.open(article.url, "_blank");
     });
 }
+
 
 let curSelectedNav = null;
 
