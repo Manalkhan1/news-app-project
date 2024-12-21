@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form id="signupForm">
+            <h1>Sign Up</h1>
+            <div class="input-box">
+                <input type="text" id="newUsername" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" placeholder="Email" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="newPassword" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="register-link">
+                <p>Already have an account? <a href="login.html" class="continue-link">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const signupForm = document.getElementById("signupForm");
+            const newUsernameInput = document.getElementById("newUsername");
+            const emailInput = document.getElementById("email");
+            const newPasswordInput = document.getElementById("newPassword");
+
+            signupForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const newUsername = newUsernameInput.value.trim();
+                const email = emailInput.value.trim();
+                const newPassword = newPasswordInput.value.trim();
+
+                if (!newUsername || !email || !newPassword) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+
+                // Save user data to localStorage (For simplicity, this is being saved as a JSON object)
+                const userData = { username: newUsername, email, password: newPassword };
+                localStorage.setItem(newUsername, JSON.stringify(userData));
+
+                alert("Sign up successful! Please log in.");
+                window.location.href = "login.html"; // Redirect to login page
+            });
+        });
+    </script>
+</body>
+</html>
