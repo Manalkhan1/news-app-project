@@ -124,4 +124,4 @@ function displayError(message) {
     } else {
         console.error("Error container not found in the DOM.");
     }
-}
+} 
